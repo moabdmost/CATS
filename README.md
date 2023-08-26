@@ -1,4 +1,4 @@
-# CATS: Comprehensive Automatic Text Scorer
+# CATS: Comprehensive Automatic Text Scorer.
 ## Work in progress ...
 
 Welcome to the Comprehensive Automatic Text Scorer repository! This application was originally developed for the University of Kuala Lumpur, but it's now open to the public. This repository contains the code and resources for the application that leverages advanced AI technologies to enhance the efficiency and accuracy of essay scoring, detect AI-generated text, and perform plagiarism checks.
