@@ -1,0 +1,10 @@
+
+# Please set your artifact path specified when training
+# artifact_path: /workspace/expats/artifacts
+# artifact_path: /workspace/expats/artifacts
+
+dataset:
+    type: asap-aes
+    params:
+        path: /workspace/data/test.tsv
+        prompt_id: 1

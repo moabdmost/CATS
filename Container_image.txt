@@ -1,0 +1,22 @@
+0	/bin/bash	8.18 GB
+1	WORKDIR /workspace	0 Bytes
+2	ENV PYTORCH_VERSION=v1.8.1	0 Bytes
+3	ENV LD_LIBRARY_PATH=/usr/local/nvidia/lib:/usr/local/nvidia/lib64	0 Bytes
+4	ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility	0 Bytes
+5	ENV NVIDIA_VISIBLE_DEVICES=all	0 Bytes
+6	ENV PATH=/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin	0 Bytes
+7	COPY /opt/conda /opt/conda # buildkit	7.16 GB
+8	RUN |1 PYTORCH_VERSION=v1.8.1 /bin/sh -c apt-get update && apt-get install -y --no-install-recommends ca-certificates libjpeg-dev libpng-dev && rm -rf /var/lib/apt/lists/* # buildkit	32.34 MB
+9	LABEL com.nvidia.volumes.needed=nvidia_driver	0 Bytes
+10	ARG PYTORCH_VERSION	0 Bytes
+11	/bin/sh -c #(nop) CMD ["/bin/bash"]	0 Bytes
+12	/bin/sh -c mkdir -p /run/systemd && echo 'docker' > /run/systemd/container	7 Bytes
+13	/bin/sh -c [ -z "$(apt-get indextargets)" ]	0 Bytes
+14	/bin/sh -c set -xe && echo '#!/bin/sh' > /usr/sbin/policy-rc.d && echo 'exit 101' >> /usr/sbin/policy-rc.d && chmod +x /usr/sbin/policy-rc.d && dpkg-divert --local --rename --add /sbin/initctl && cp -a /usr/sbin/policy-rc.d /sbin/initctl && sed -i 's/^exit.*/exit 0/' /sbin/initctl && echo 'force-unsafe-io' > /etc/dpkg/dpkg.cfg.d/docker-apt-speedup && echo 'DPkg::Post-Invoke { "rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true"; };' > /etc/apt/apt.conf.d/docker-clean && echo 'APT::Update::Post-Invoke { "rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true"; };' >> /etc/apt/apt.conf.d/docker-clean && echo 'Dir::Cache::pkgcache ""; Dir::Cache::srcpkgcache "";' >> /etc/apt/apt.conf.d/docker-clean && echo 'Acquire::Languages "none";' > /etc/apt/apt.conf.d/docker-no-languages && echo 'Acquire::GzipIndexes "true"; Acquire::CompressionTypes::Order:: "gz";' > /etc/apt/apt.conf.d/docker-gzip-indexes && echo 'Apt::AutoRemove::SuggestsImportant "false";' > /etc/apt/apt.conf.d/docker-autoremove-suggests	745 Bytes
+15	/bin/sh -c #(nop) ADD file:d65963eb4f4b3a8c8e57119725a91036e8932a3e8f604e7edc21ff9665472da9 in /	63.26 MB
+
+
+--------------------------------------------------------
+megatazm/expats	IN USE	ver1-rtx3080ti	d8059bc2a69e	over 1 year ago	15.43 GB
+
+--------------------------------------------------------

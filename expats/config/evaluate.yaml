@@ -1,0 +1,29 @@
+
+# Please set your artifact path specified when training
+# artifact_path: /workspace/expats/artifacts
+
+dataset:
+    type: asap-aes
+    params:
+        path: /workspace/data/test.tsv
+        prompt_id: 1
+
+output_convert:
+    regression_to_classification:
+        type: MinMaxDenormalizedRoundNearestInteger
+        params:
+           x_min: 2
+           x_max: 12
+metrics:
+    classification:
+        - type: MacroF1
+          params:
+        - type: MicroF1
+          params:
+        - type: Accuracy
+          params:
+        - type: QuadraticWeightedKappa
+          params:
+    regression:
+        - type: PearsonCorrelation
+          params:

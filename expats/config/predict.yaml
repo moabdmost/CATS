@@ -1,0 +1,8 @@
+
+# Please set your artifact path specified when training
+# artifact_path: /workspace/expats/artifacts
+
+dataset:
+    type: line-by-line
+    params:
+        file_path: /workspace/expats/prediction_process/predict.txt

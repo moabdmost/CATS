@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Approval Page</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Welcome to the Approval Page, {{ username }}! <a href="/logout" class="btn btn-danger">Logout</a></h1>
+
+        <h2 class="mt-4">Pending Approvals</h2>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>ID Number</th>
+                    <th>User Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.id_number }}</td>
+                    <td>{{ user.usertype }}</td>
+                    <td>
+                        <form action="/approval" method="POST" class="d-inline">
+                            <input type="hidden" name="username" value="{{ user.username }}">
+                            <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                        </form>
+                        <form action="/reject" method="POST" class="d-inline">
+                            <input type="hidden" name="username" value="{{ user.username }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Buttons at the bottom -->
+        <div class="text-center">
+            <form action="{{ url_for('admin_panel') }}" method="GET">
+                <button type="submit" class="btn btn-primary">Back to Admin</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

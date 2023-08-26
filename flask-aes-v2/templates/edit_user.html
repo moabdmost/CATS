@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        /* Common class for input elements */
+        .form-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Set the width of user type field to match other fields */
+        select#usertype {
+            width: 100%;
+        }
+
+        /* Set the width of the other fields to match user type field */
+        input.form-field {
+            width: 95%;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit User</h1>
+    <form method="post">
+        <label for="username">Username:</label>
+        <input class="form-field" type="text" name="username" id="username" value="{{ user.username }}" required>
+
+        <label for="password">Password:</label>
+        <input class="form-field" type="password" name="password" id="password" value="{{ user.password }}" required>
+
+        <label for="id_number">ID Number:</label>
+        <input class="form-field" type="text" name="id_number" id="id_number" value="{{ user.id_number }}" required>
+
+        <label for="usertype">User Type:</label>
+        <select class="form-field" name="usertype" id="usertype">
+            <option value="student" {% if user.usertype == 'student' %}selected{% endif %}>Student</option>
+            <option value="admin" {% if user.usertype == 'admin' %}selected{% endif %}>Admin</option>
+            <option value="assessor" {% if user.usertype == 'assessor' %}selected{% endif %}>Assessor</option>
+        </select>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
