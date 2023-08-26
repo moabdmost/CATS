@@ -12,22 +12,45 @@ Welcome to the Comprehensive Automatic Essay Scoring repository! This applicatio
 
 - **User Interface:** A user-friendly web interface has been developed from scratch, making it easy for educators to interact with the application. The UI is designed for in-class testing and provides a seamless experience.
 
+## Requirements
+
+[Python](https://www.python.org/?downloads) and [Poetry](https://python-poetry.org/) are required to run and install the dependencies.
+```
+apt-get install python-pip
+pip install poetry
+
+```
+
 ## Usage
 
 To use the application, follow these steps:
 
 1. Clone the repository to your local machine.
-'''
+```
 git clone https://github.com/your-username/https://github.com/moabdmost/AES_UniKL.git
-'''
-2. Install the required dependencies for each feature. Refer to the individual directories for specific instructions.
+```
+2. Change the main folder name to `workspace`
+3. Install the required dependencies for each feature:
 
-3. Launch the web user interface by running the provided script:
-'''
-python app.py
-'''
+```
+cd workspace
+pip install -r requirements.txt
+```
 
-4. Access the application in your web browser by navigating to `http://localhost:5000`.
+4. Install EXPATS python dependencies via poetry.
+
+```
+cd expats
+poetry install
+poetry shell
+```
+5. [Download the detector and scorer models]() and save the folder `models` in `workspace`.
+7. Launch the web user interface by running the provided script:
+```
+python workspace/flask-aes-v2/app.py
+```
+
+6. Access the application in your web browser by navigating to `http://localhost:5000`.
 
 ## Contributions
 
@@ -35,7 +58,7 @@ We welcome contributions from the community to improve and expand the functional
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE.txt).
 
 ## Contact
 
