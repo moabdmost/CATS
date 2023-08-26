@@ -52,6 +52,7 @@ python workspace/flask-aes-v2/app.py
 ```
 
 7. Access the application in your web browser by navigating to `http://localhost:5000`.
+8. Put your custom data in the `archive`, change paths in the preprocessing `scripts`, and see the magic!
 
 ## Contributions
 
