@@ -45,12 +45,12 @@ poetry install
 poetry shell
 ```
 5. [Download the detector and scorer models](https://drive.google.com/drive/folders/11cfavr7XmtXuxdVGSGFHx1r4ihvLWm6q?usp=sharing) and save the folder `models` in `workspace`.
-7. Launch the web user interface by running the provided script:
+6. Launch the web user interface by running the provided script:
 ```
 python workspace/flask-aes-v2/app.py
 ```
 
-6. Access the application in your web browser by navigating to `http://localhost:5000`.
+7. Access the application in your web browser by navigating to `http://localhost:5000`.
 
 ## Contributions
 
