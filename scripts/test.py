@@ -1,7 +1,7 @@
 """
 Pligarism checker using Duckduckgo or Bing search.
 Bing search impelementation still needs improvement.
-This can look for any exact matchs on the web for each sentece in the essay and return pligarism ratio.
+This can look for any exact matchs on the web for each sentece in the essay and pligarism ratio.
 
 Author: Mohamed Mostafa
 """
@@ -43,11 +43,24 @@ def check_for_plagiarism(text):
         # if result == None:
         #         continue
         
-        plagiarized_count += 1
-        plagiarized_sentences.append(sentence)
-        print("Found: " + sentence)
-        sources.append(result)
-        print("Source: " + result)
+        sentence = re.sub(r'[^\w\s]', '', sentence)
+        plain_sentence = sentence.replace(" ", "")
+        
+        try:
+            site_text = get_visible_text(result)
+            site = preprocess_essay(site_text)
+        except TypeError as e:
+            continue
+        
+        for web_sentence in site:
+            web_sentence = re.sub(r'[^\w\s]', '', web_sentence)
+            plain_web_sentence = web_sentence.replace(" ", "")
+            if plain_web_sentence == plain_sentence:
+                plagiarized_count += 1
+                plagiarized_sentences.append(sentence)
+                print("Found: " + web_sentence)
+                sources.append(result)
+                print("Source: " + result)
         
 
     print(f"N. Plagiarized Sentences: {plagiarized_count}")
